@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Present Perfect Continuous & Globalization | Study Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --dark: #1e1b4b;
+            --light: #f8fafc;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            opacity: 0.05;
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape-1 { width: 300px; height: 300px; background: var(--primary); top: 10%; left: 10%; animation-delay: 0s; }
+        .shape-2 { width: 200px; height: 200px; background: var(--secondary); top: 60%; right: 10%; animation-delay: 5s; }
+        .shape-3 { width: 150px; height: 150px; background: var(--accent); bottom: 20%; left: 30%; animation-delay: 10s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-100px) rotate(180deg); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-1);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: var(--gradient-1);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveGrid 20s linear infinite;
+        }
+
+        @keyframes moveGrid {
+            0% { transform: translate(0,0); }
+            100% { transform: translate(50px,50px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 0.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Section Cards */
+        .section-card {
+            background: white;
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-1);
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        /* Grammar Structure Box */
+        .structure-box {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .structure-box::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .formula {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            margin: 1rem 0;
+            border: 2px dashed rgba(255,255,255,0.3);
+        }
+
+        .formula-part {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin: 0.2rem;
+            border-radius: 8px;
+            font-weight: 700;
+        }
+
+        .subj { background: #f59e0b; color: #1e1b4b; }
+        .aux { background: #10b981; }
+        .been { background: #8b5cf6; }
+        .verb { background: #ef4444; }
+        .ing { background: #3b82f6; }
+
+        /* Forms Grid */
+        .forms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .form-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 20px;
+            border: 3px solid transparent;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .form-card:hover {
+            border-color: var(--primary);
+            transform: scale(1.02);
+        }
+
+        .form-card.negative::before {
+            content: '✕';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 40px;
+            height: 40px;
+            background: var(--danger);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .form-card.question::before {
+            content: '?';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .form-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        /* Keywords Cloud */
+        .keywords-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .keyword-tag {
+            background: var(--gradient-1);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(99,102,241,0.4);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .keyword-tag:hover {
+            transform: translateY(-3px) rotate(2deg);
+            box-shadow: 0 8px 25px rgba(99,102,241,0.6);
+        }
+
+        .keyword-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .keyword-tag:hover::before {
+            left: 100%;
+        }
+
+        /* Examples Section */
+        .example-item {
+            background: white;
+            border-left: 5px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0 15px 15px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .example-item:hover {
+            transform: translateX(10px);
+            border-left-width: 10px;
+        }
+
+        .example-en {
+            font-size: 1.2rem;
+            color: var(--dark);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-es {
+            color: #64748b;
+            font-style: italic;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #fde047 0%, #fde047 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 88%;
+            padding: 0 4px;
+            font-weight: 700;
+        }
+
+        /* Practice Section */
+        .practice-zone {
+            background: linear-gradient(135deg, #1e1b4b 0%, #0f0f2e 100%);
+            color: white;
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 2rem 0;
+        }
+
+        .exercise-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            transition: all 0.3s;
+        }
+
+        .exercise-item:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(5px);
+        }
+
+        .exercise-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: var(--accent);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: 700;
+            margin-right: 1rem;
+        }
+
+        .input-blank {
+            display: inline-block;
+            min-width: 150px;
+            border-bottom: 3px solid var(--accent);
+            margin: 0 5px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--accent);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .input-blank:hover {
+            background: rgba(245,158,11,0.2);
+            border-radius: 5px;
+        }
+
+        .input-blank.correct {
+            border-color: var(--success);
+            color: var(--success);
+        }
+
+        .input-blank.incorrect {
+            border-color: var(--danger);
+            color: var(--danger);
+        }
+
+        /* Vocabulary Grid */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .vocab-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vocab-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .vocab-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .vocab-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .vocab-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .vocab-word {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .vocab-meaning {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        /* Interactive Quiz */
+        .quiz-container {
+            background: white;
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .quiz-option {
+            background: #f1f5f9;
+            border: 3px solid transparent;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--primary);
+            background: #e0e7ff;
+        }
+
+        .quiz-option.selected {
+            border-color: var(--primary);
+            background: #c7d2fe;
+        }
+
+        .quiz-option.correct {
+            border-color: var(--success);
+            background: #d1fae5;
+        }
+
+        .quiz-option.wrong {
+            border-color: var(--danger);
+            background: #fee2e2;
+        }
+
+        .option-letter {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(255,255,255,0.1);
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--gradient-1);
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 4px 15px rgba(99,102,241,0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(99,102,241,0.6);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 15px rgba(245,158,11,0.4);
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(245,158,11,0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .section-title { font-size: 1.8rem; }
+            .forms-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+    </div>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">📚 English Mastery</div>
+            <ul class="nav-links">
+                <li><a href="#grammar">Gramática</a></li>
+                <li><a href="#keywords">Keywords</a></li>
+                <li><a href="#vocabulary">Vocabulario</a></li>
+                <li><a href="#practice">Práctica</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Present Perfect Continuous</h1>
+            <p>Domina el tiempo verbal que describe acciones que empezaron en el pasado y continúan en el presente, junto con vocabulario esencial de globalización.</p>
+            <div>
+                <span class="badge">🌍 Globalization</span>
+                <span class="badge">⏱️ Duration</span>
+                <span class="badge">📈 Continuous Actions</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Grammar Section -->
+        <section id="grammar" class="section-card fade-in">
+            <h2 class="section-title">
+                <div class="icon">📖</div>
+                Estructura del Present Perfect Continuous
+            </h2>
+            
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #475569;">
+                Se usa para describir acciones que <strong>empezaron en el pasado</strong> y <strong>siguen ocurriendo ahora</strong>.
+            </p>
+
+            <div class="structure-box">
+                <h3 style="text-align: center; margin-bottom: 1rem; font-size: 1.3rem;">Fórmula Base (Afirmativo)</h3>
+                <div class="formula">
+                    <span class="formula-part subj tooltip">Sujeto<span class="tooltiptext">I, You, We, They, He, She, It</span></span>
+                    <span style="opacity: 0.7;">+</span>
+                    <span class="formula-part aux">have/has</span>
+                    <span style="opacity: 0.7;">+</span>
+                    <span class="formula-part been">been</span>
+                    <span style="opacity: 0.7;">+</span>
+                    <span class="formula-part verb">V</span>
+                    <span class="formula-part ing">-ing</span>
+                    <span style="opacity: 0.7;">+</span>
+                    <span style="opacity: 0.7;">Complemento</span>
+                </div>
+                <div style="text-align: center; margin-top: 1rem; opacity: 0.9;">
+                    <strong>Ejemplo:</strong> People <span style="color: #f59e0b;">have been using</span> the Internet.
+                </div>
+            </div>
+
+            <div class="forms-grid">
+                <div class="form-card negative">
+                    <h3 class="form-title">🚫 Forma Negativa</h3>
+                    <p style="margin-bottom: 1rem; color: #64748b;">Sujeto + have/has + <strong>not</strong> + been + verbo-ing</p>
+                    <div style="background: #fee2e2; padding: 1rem; border-radius: 10px; border-left: 4px solid var(--danger);">
+                        <strong>Ejemplo:</strong><br>
+                        I <span style="color: var(--danger);">have not been</span> working.<br>
+                        <small style="color: #64748b;">No he estado trabajando.</small>
+                    </div>
+                </div>
+
+                <div class="form-card question">
+                    <h3 class="form-title">❓ Forma Interrogativa</h3>
+                    <p style="margin-bottom: 1rem; color: #64748b;">Have/Has + Sujeto + been + verbo-ing?</p>
+                    <div style="background: #fef3c7; padding: 1rem; border-radius: 10px; border-left: 4px solid var(--accent);">
+                        <strong>Ejemplo:</strong><br>
+                        <span style="color: var(--accent);">Have</span> I <span style="color: var(--accent);">been</span> working?<br>
+                        <small style="color: #64748b;">¿He estado trabajando?</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-item">
+                <div class="example-en">
+                    <span class="highlight">Companies have been expanding</span> globally.
+                </div>
+                <div class="example-es">Las compañías han estado expandiéndose globalmente.</div>
+            </div>
+
+            <div class="example-item">
+                <div class="example-en">
+                    She <span class="highlight">has been watching</span> videos all day.
+                </div>
+                <div class="example-es">Ella ha estado viendo videos todo el día.</div>
+            </div>
+
+            <div class="example-item">
+                <div class="example-en">
+                    They <span class="highlight">have been using</span> social media lately.
+                </div>
+                <div class="example-es">Ellos han estado usando redes sociales últimamente.</div>
+            </div>
+        </section>
+
+        <!-- Keywords Section -->
+        <section id="keywords" class="section-card fade-in">
+            <h2 class="section-title">
+                <div class="icon" style="background: var(--gradient-2);">🔑</div>
+                Keywords - Palabras Clave
+            </h2>
+            
+            <p style="margin-bottom: 2rem; color: #475569;">
+                Estas palabras te ayudan a identificar cuándo usar el Present Perfect Continuous. Indican <strong>tiempo</strong> y <strong>duración</strong>.
+            </p>
+
+            <div class="keywords-cloud">
+                <div class="keyword-tag" onclick="showKeywordInfo('for')">FOR</div>
+                <div class="keyword-tag" onclick="showKeywordInfo('since')">SINCE</div>
+                <div class="keyword-tag" onclick="showKeywordInfo('lately')">LATELY</div>
+                <div class="keyword-tag" onclick="showKeywordInfo('recently')">RECENTLY</div>
+                <div class="keyword-tag" onclick="showKeywordInfo('allday')">ALL DAY</div>
+                <div class="keyword-tag" onclick="showKeywordInfo('allmorning')">ALL MORNING</div>
+                <div class="keyword-tag" onclick="showKeywordInfo('allweek')">ALL WEEK</div>
+                <div class="keyword-tag" onclick="showKeywordInfo('howlong')">HOW LONG</div>
+            </div>
+
+            <div id="keywordDetail" style="margin-top: 2rem; padding: 2rem; background: #f8fafc; border-radius: 15px; display: none;">
+                <h3 id="keywordTitle" style="color: var(--primary); margin-bottom: 1rem;"></h3>
+                <p id="keywordDesc"></p>
+                <div id="keywordExample" style="margin-top: 1rem; font-style: italic; color: #64748b;"></div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <h3 style="margin-bottom: 1rem; color: var(--dark);">Ejemplos con Keywords:</h3>
+                <div class="example-item">
+                    <div class="example-en">I have been studying <span class="highlight">for two hours</span>.</div>
+                    <div class="example-es">He estado estudiando por dos horas. (FOR + período de tiempo)</div>
+                </div>
+                <div class="example-item">
+                    <div class="example-en">She has been working <span class="highlight">since Monday</span>.</div>
+                    <div class="example-es">Ella ha estado trabajando desde el lunes. (SINCE + punto específico en el tiempo)</div>
+                </div>
+                <div class="example-item">
+                    <div class="example-en">They have been using social media <span class="highlight">lately</span>.</div>
+                    <div class="example-es">Últimamente han estado usando redes sociales.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vocabulary Section -->
+        <section id="vocabulary" class="section-card fade-in">
+            <h2 class="section-title">
+                <div class="icon" style="background: var(--gradient-3);">🌍</div>
+                Vocabulario de Globalización
+            </h2>
+
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <div class="vocab-icon">🏢</div>
+                    <div class="vocab-word">Large Company</div>
+                    <div class="vocab-meaning">Gran empresa / Corporación multinacional</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-icon">🏪</div>
+                    <div class="vocab-word">Small Business</div>
+                    <div class="vocab-meaning">Pequeña empresa / Negocio local</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-icon">📱</div>
+                    <div class="vocab-word">Social Media</div>
+                    <div class="vocab-meaning">Redes sociales</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-icon">🌐</div>
+                    <div class="vocab-word">Expand Globally</div>
+                    <div class="vocab-meaning">Expandirse globalmente</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-icon">💻</div>
+                    <div class="vocab-word">Online Shopping</div>
+                    <div class="vocab-meaning">Compras en línea</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-icon">🤖</div>
+                    <div class="vocab-word">Technology</div>
+                    <div class="vocab-meaning">Tecnología</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-icon">📦</div>
+                    <div class="vocab-word">Develop Materials</div>
+                    <div class="vocab-meaning">Desarrollar materiales</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-icon">⚙️</div>
+                    <div class="vocab-word">Advanced Machine</div>
+                    <div class="vocab-meaning">Máquina avanzada</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem; padding: 2rem; background: linear-gradient(135deg, #dbeafe 0%, #c7d2fe 100%); border-radius: 20px;">
+                <h3 style="margin-bottom: 1rem;">📝 Nota importante:</h3>
+                <p><strong>Large Companies vs Small Business:</strong></p>
+                <ul style="margin-left: 2rem; margin-top: 0.5rem; line-height: 2;">
+                    <li><strong>Large Companies:</strong> Tienen muchos empleados, operan internacionalmente, usan tecnología avanzada.</li>
+                    <li><strong>Small Business:</strong> Negocios locales, menos empleados, atención personalizada.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Practice Section -->
+        <section id="practice" class="practice-zone fade-in">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                <span style="font-size: 3rem;">✏️</span>
+                Practice Time - Tiempo de Práctica
+            </h2>
+            <p style="opacity: 0.9; margin-bottom: 2rem; font-size: 1.1rem;">
+                Completa los ejercicios basados en tu material de clase. Haz clic en los espacios en blanco para ver la respuesta.
+            </p>
+
+            <h3 style="margin: 2rem 0 1rem 0; color: var(--accent);">Parte I: Completa la oración</h3>
+            
+            <div class="exercise-item">
+                <span class="exercise-number">1</span>
+                My brother <span class="input-blank" onclick="checkAnswer(this, 'has been buying')" data-answer="has been buying">__________</span> online. (buy)
+            </div>
+
+            <div class="exercise-item">
+                <span class="exercise-number">2</span>
+                People <span class="input-blank" onclick="checkAnswer(this, 'have been using')" data-answer="have been using">__________</span> social media. (use)
+            </div>
+
+            <div class="exercise-item">
+                <span class="exercise-number">3</span>
+                Companies <span class="input-blank" onclick="checkAnswer(this, 'have been expanding')" data-answer="have been expanding">__________</span>. (expand)
+            </div>
+
+            <div class="exercise-item">
+                <span class="exercise-number">4</span>
+                She <span class="input-blank" onclick="checkAnswer(this, 'has been watching')" data-answer="has been watching">__________</span> videos. (watch)
+            </div>
+
+            <div class="exercise-item">
+                <span class="exercise-number">5</span>
+                I <span class="input-blank" onclick="checkAnswer(this, 'have been using')" data-answer="have been using">__________</span> my phone. (use)
+            </div>
+
+            <div class="exercise-item">
+                <span class="exercise-number">6</span>
+                They <span class="input-blank" onclick="checkAnswer(this, 'have been watching')" data-answer="have been watching">__________</span> the TV. (watch)
+            </div>
+
+            <div class="exercise-item">
+                <span class="exercise-number">7</span>
+                The dog <span class="input-blank" onclick="checkAnswer(this, 'has been playing')" data-answer="has been playing">__________</span> with the robot. (play)
+            </div>
+
+            <h3 style="margin: 3rem 0 1rem 0; color: var(--accent);">Parte II: "Globalization in my life"</h3>
+
+            <div class="exercise-item">
+                <span class="exercise-number">1</span>
+                I have been using <span class="input-blank" onclick="checkAnswer(this, 'social media')" data-answer="social media">__________</span>.
+            </div>
+
+            <div class="exercise-item">
+                <span class="exercise-number">2</span>
+                I haven't been watching <span class="input-blank" onclick="checkAnswer(this, 'TV')" data-answer="TV">__________</span>.
+            </div>
+
+            <div class="exercise-item">
+                <span class="exercise-number">3</span>
+                I have been learning <span class="input-blank" onclick="checkAnswer(this, 'English')" data-answer="English">__________</span>.
+            </div>
+
+            <div class="exercise-item">
+                <span class="exercise-number">4</span>
+                My mom hasn't been <span class="input-blank" onclick="checkAnswer(this, 'working')" data-answer="working">__________</span>.
+            </div>
+
+            <div class="exercise-item">
+                <span class="exercise-number">5</span>
+                My dad <span class="input-blank" onclick="checkAnswer(this, 'has been working')" data-answer="has been working">__________</span>.
+            </div>
+
+            <div class="exercise-item">
+                <span class="exercise-number">6</span>
+                My sister <span class="input-blank" onclick="checkAnswer(this, 'has been studying')" data-answer="has been studying">__________</span>.
+            </div>
+
+            <div class="exercise-item">
+                <span class="exercise-number">7</span>
+                They <span class="input-blank" onclick="checkAnswer(this, 'have been traveling')" data-answer="have been traveling">__________</span>.
+            </div>
+
+            <div style="margin-top: 2rem; text-align: center;">
+                <button class="btn btn-accent" onclick="resetPractice()">🔄 Reiniciar Práctica</button>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="quiz-container fade-in">
+            <h2 class="section-title">
+                <div class="icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">🎯</div>
+                Quick Quiz
+            </h2>
+
+            <div id="quizContent">
+                <div class="quiz-question" style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;">1. ¿Cuál es la estructura correcta del Present Perfect Continuous?</h3>
+                    
+                    <div class="quiz-option" onclick="selectOption(this, false)">
+                        <div class="option-letter">A</div>
+                        <div>Sujeto + have/has + verbo en pasado</div>
+                    </div>
+                    
+                    <div class="quiz-option" onclick="selectOption(this, true)">
+                        <div class="option-letter">B</div>
+                        <div>Sujeto + have/has + been + verbo-ing</div>
+                    </div>
+                    
+                    <div class="quiz-option" onclick="selectOption(this, false)">
+                        <div class="option-letter">C</div>
+                        <div>Sujeto + was/were + verbo-ing</div>
+                    </div>
+                </div>
+
+                <div class="quiz-question" style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;">2. "I have been studying _____ three hours." ¿Qué keyword usarías?</h3>
+                    
+                    <div class="quiz-option" onclick="selectOption(this, true)">
+                        <div class="option-letter">A</div>
+                        <div>for</div>
+                    </div>
+                    
+                    <div class="quiz-option" onclick="selectOption(this, false)">
+                        <div class="option-letter">B</div>
+                        <div>since</div>
+                    </div>
+                    
+                    <div class="quiz-option" onclick="selectOption(this, false)">
+                        <div class="option-letter">C</div>
+                        <div>lately</div>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;">3. ¿Cuál oración está en Present Perfect Continuous?</h3>
+                    
+                    <div class="quiz-option" onclick="selectOption(this, false)">
+                        <div class="option-letter">A</div>
+                        <div>She bought a new phone yesterday.</div>
+                    </div>
+                    
+                    <div class="quiz-option" onclick="selectOption(this, true)">
+                        <div class="option-letter">B</div>
+                        <div>She has been using her phone all day.</div>
+                    </div>
+                    
+                    <div class="quiz-option" onclick="selectOption(this, false)">
+                        <div class="option-letter">C</div>
+                        <div>She is buying a phone right now.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="quizResult" style="display: none; margin-top: 2rem; padding: 2rem; background: #d1fae5; border-radius: 15px; text-align: center;">
+                <h3 style="color: var(--success); font-size: 1.5rem; margin-bottom: 1rem;">🎉 ¡Excelente trabajo!</h3>
+                <p>Has completado el quiz. ¡Sigue practicando!</p>
+                <button class="btn btn-primary" onclick="location.reload()" style="margin-top: 1rem;">Repetir Quiz</button>
+            </div>
+        </section>
+
+        <!-- Summary Section -->
+        <section class="section-card fade-in" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); color: white;">
+            <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">📝 Resumen Rápido</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div>
+                    <h3 style="color: #f59e0b; margin-bottom: 0.5rem;">Uso</h3>
+                    <p style="opacity: 0.9;">Acciones que empezaron en el pasado y continúan en el presente.</p>
+                </div>
+                <div>
+                    <h3 style="color: #f59e0b; margin-bottom: 0.5rem;">Estructura</h3>
+                    <p style="opacity: 0.9;">S + have/has + been + V-ing</p>
+                </div>
+                <div>
+                    <h3 style="color: #f59e0b; margin-bottom: 0.5rem;">Keywords</h3>
+                    <p style="opacity: 0.9;">for, since, lately, recently, all day/week</p>
+                </div>
+                <div>
+                    <h3 style="color: #f59e0b; margin-bottom: 0.5rem;">Traducción</h3>
+                    <p style="opacity: 0.9;">"Han estado..." / "He estado..."</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <h3>🎓 English Study Hub</h3>
+        <p style="margin-top: 1rem; opacity: 0.8;">Creado para dominar el Present Perfect Continuous y vocabulario de Globalización</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.6;">Basado en material de clase • 2025</p>
+    </footer>
+
+    <script>
+        // Progress Bar
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+
+        // Keyword Info
+        function showKeywordInfo(keyword) {
+            const detail = document.getElementById('keywordDetail');
+            const title = document.getElementById('keywordTitle');
+            const desc = document.getElementById('keywordDesc');
+            const example = document.getElementById('keywordExample');
+            
+            const info = {
+                'for': {
+                    title: 'FOR',
+                    desc: 'Se usa para indicar una duración de tiempo (período).',
+                    example: 'I have been studying for two hours. (He estado estudiando por dos horas)'
+                },
+                'since': {
+                    title: 'SINCE',
+                    desc: 'Se usa para indicar el punto específico en el tiempo cuando empezó la acción.',
+                    example: 'She has been working since Monday. (Ella ha estado trabajando desde el lunes)'
+                },
+                'lately': {
+                    title: 'LATELY',
+                    desc: 'Significa "últimamente" o "recientemente". Indica un período reciente hasta ahora.',
+                    example: 'They have been using social media lately. (Últimamente han estado usando redes sociales)'
+                },
+                'recently': {
+                    title: 'RECENTLY',
+                    desc: 'Similar a lately, indica algo que ha estado ocurriendo en un período reciente.',
+                    example: 'I have been learning English recently. (Recientemente he estado aprendiendo inglés)'
+                },
+                'allday': {
+                    title: 'ALL DAY',
+                    desc: 'Indica que la acción ha ocupado todo el día.',
+                    example: 'He has been working all day. (Él ha estado trabajando todo el día)'
+                },
+                'allmorning': {
+                    title: 'ALL MORNING',
+                    desc: 'Indica que la acción ha ocupado toda la mañana.',
+                    example: 'We have been studying all morning. (Hemos estado estudiando toda la mañana)'
+                },
+                'allweek': {
+                    title: 'ALL WEEK',
+                    desc: 'Indica que la acción ha ocupado toda la semana.',
+                    example: 'They have been expanding all week. (Ellos han estado expandiéndose toda la semana)'
+                },
+                'howlong': {
+                    title: 'HOW LONG',
+                    desc: 'Se usa para preguntar sobre la duración de una acción continua.',
+                    example: 'How long have you been waiting? (¿Cuánto tiempo has estado esperando?)'
+                }
+            };
+            
+            title.textContent = info[keyword].title;
+            desc.textContent = info[keyword].desc;
+            example.textContent = 'Ejemplo: ' + info[keyword].example;
+            detail.style.display = 'block';
+            detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Practice Check
+        function checkAnswer(element, correctAnswer) {
+            if (element.textContent.includes('__________')) {
+                element.textContent = correctAnswer;
+                element.classList.add('correct');
+            } else {
+                element.textContent = '__________';
+                element.classList.remove('correct', 'incorrect');
+            }
+        }
+
+        function resetPractice() {
+            const blanks = document.querySelectorAll('.input-blank');
+            blanks.forEach(blank => {
+                blank.textContent = '__________';
+                blank.classList.remove('correct', 'incorrect');
+            });
+        }
+
+        // Quiz
+        let correctAnswers = 0;
+        let totalQuestions = 3;
+
+        function selectOption(element, isCorrect) {
+            const options = element.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+                if (opt === element) {
+                    if (isCorrect) {
+                        opt.classList.add('correct');
+                        correctAnswers++;
+                    } else {
+                        opt.classList.add('wrong');
+                    }
+                }
+            });
+
+            // Show correct answer if wrong selected
+            if (!isCorrect) {
+                options.forEach(opt => {
+                    if (opt.onclick.toString().includes('true')) {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+
+            // Check if all answered
+            const allAnswered = document.querySelectorAll('.quiz-option.correct, .quiz-option.wrong').length === 9;
+            if (allAnswered) {
+                setTimeout(() => {
+                    document.getElementById('quizContent').style.display = 'none';
+                    document.getElementById('quizResult').style.display = 'block';
+                    document.getElementById('quizResult').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.2s';
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-card, .practice-zone, .quiz-container').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
